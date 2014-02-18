@@ -50,6 +50,8 @@
           <p>
             Rails 4.1 is still in Beta, and some issues(brought up later) will be present.
           </p>
+          <hr/>
+          <p>4.1.0.beta1 branch, f706d5f945</p>
 
           <aside class="notes">
             
@@ -103,17 +105,23 @@
           </section>
         </section>
 
-
-
-
         <section>
           <section>
             <h2>Action Mailer Previews</h2>
-            <p>
-              Replacement for <a href="https://github.com/sj26/mailcatcher">Mailcatcher</a>, <a href="http://mailtrap.io/">Mailtrap</a>, and <a href="https://github.com/ryanb/letter_opener">Letter Opener</a> in development.
-            </p>
+            <p>Replaces opt-in gems:</p>
+          
+            <ul>
+              <li><a href="https://github.com/sj26/mailcatcher">Mailcatcher</a></li>
+              <li><a href="http://mailtrap.io/">Mailtrap</a></li>
+              <li><a href="https://github.com/ryanb/letter_opener">Letter Opener</a></li>
+            </ul>
+            <hr>
+            <p>Based on <a href="https://github.com/basecamp/mail_view">basecamp/mail_view</a> </p>
+          </section>
 
-            <pre  class="language-ruby">
+          <section>
+            <h2>Contrived Example!</h2>
+            <pre class="language-ruby">
               ('test' || 'spec')/mailers/previews/registration_mailer
               <code>
                 class RegistrationMailer < ActionMailer::Preview
@@ -158,17 +166,116 @@
           </section>
           <section>
             <h2>Time Comparison</h2>
-            <pre>
+            <p>Rails new. Rspec. Single Scaffold.</p>
+            <pre class="language-bash">
               <code>
+                time ./bin/rake spec
 
+                real  0m2.861s
+                user  0m0.140s
+                sys 0m0.084s
               </code>
 
-              <code>
+              <code class="language-bash">
+                time ./bin/rake spec
 
+                real  0m2.008s
+                user  0m0.141s
+                sys 0m0.086s
+              </code>
+
+              <code class="language-bash">
+                ./bin/spring status
+                Spring is running:
+
+                87467 spring server | awesome_project | started 54 secs ago  
+                87468 spring app    | awesome_project | started 54 secs ago | development mode 
               </code>
             </pre>
           </section>
         </section>
+
+
+        <section>
+          <h2>And others!</h2>
+          <ul>
+            <li>secrets.yml
+              <ul>
+                <li>secretkeybase</li>
+                <li>api keys</li>
+              </ul>
+            </li>
+            <li>Message Verifiers
+              <pre><code>
+Rails.application.message_verifier(:remember_me).
+generate(token)
+
+Rails.application.message_verifier(:remember_me).
+verify(signed_token)
+
+              </code></pre>
+            </li>
+            <li>Module concerning
+              <ul><li>Inline modules</li></ul>
+            </li>
+            <li>ActiveRecord enums
+              <ul><li>queryable statuses mapped to db integers</li></ul>
+            </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Possible Detours</h2>
+          </section>
+          <section>
+            <h2>Deprecations</h2>
+            <p>
+              It's just anarchy with some gems. ActiveRecord dependent gems ATM do not work.
+            </p>
+            <aside class="notes">
+              Ransack. Cocoon. Something else I can't remember.
+            </aside>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Test Refactoring, xss</h2>
+            <p>More explicit</p>
+          </section>
+          <section>
+            <img src="img/explicit.jpg" style="height: 200px">
+            <p>?</p>
+          </section>
+          <section>
+            <h2>Slight changes</h2>
+            <pre class="language-ruby">
+              <code>
+                post :create, format: :js
+              </code>
+            </pre>
+            <p>Turns into</p>
+            <pre>
+              <code>
+                xhr :post, :create, format: :js
+              </code>
+            </pre> 
+          </section>
+        </section>
+
+        <section>
+          <h2>And so many others.</h2>
+          <p>Check it out.</p>
+          <ul>
+            <li><a href="http://edgeguides.rubyonrails.org/4_1_release_notes.html">Release Notes</a></li>
+            <li><a href="http://coherence.io/blog/2013/12/17/whats-new-in-rails-4-1.html">Brief Walkthrough</a></li>
+          </ul>
+          <img src="img/doge_rails.jpg" style="height:450px;">
+        </section>
+
       </div>
 
     </div>
