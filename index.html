@@ -14,6 +14,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <link rel="icon" href="img/ruby_yyc.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/ruby_yyc.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/night.css" id="theme">
     <link rel="stylesheet" href="css/mine.css">
@@ -195,6 +198,28 @@
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>Active Record Enums</h2>
+            <p>Queryable statuses mapped to db integers.</p>
+          </section>
+          <section>
+            <pre class="language-ruby">
+              <code>
+                class Posting < ActiveRecord::Base
+                  enum status:[:draft, :published, :archived]
+                end
+
+                posting.draft! # => true
+                posting.published? # => false
+                posting.published! # => true
+
+                Posting.published # =>[#&lt;Posting id: 1, status: 1&gt;]
+              </code>
+            </pre>
+          </section>
+        </section>
+
 
         <section>
           <h2>And others!</h2>
@@ -212,23 +237,22 @@ generate(token)
 
 Rails.application.message_verifier(:remember_me).
 verify(signed_token)
-
               </code></pre>
             </li>
             <li>Module concerning
-              <ul><li>Inline modules</li></ul>
+              <ul><li>Separating concerns in models</li></ul>
             </li>
-            <li>ActiveRecord enums
-              <ul><li>queryable statuses mapped to db integers</li></ul>
-            </li>
+            <li class="fragment">No touching!</li>
           </ul>
         </section>
 
 
         <section>
+
           <section>
-            <h2>Possible Detours</h2>
+            <h2>Possible Roadblocks</h2>
           </section>
+
           <section>
             <h2>Deprecations</h2>
             <p>
@@ -238,18 +262,22 @@ verify(signed_token)
               Ransack. Cocoon. Something else I can't remember.
             </aside>
           </section>
+
         </section>
 
 
         <section>
+
           <section>
             <h2>Test Refactoring, xss</h2>
             <p>More explicit</p>
           </section>
+
           <section>
             <img src="img/explicit.jpg" style="height: 200px">
             <p>?</p>
           </section>
+
           <section>
             <h2>Slight changes</h2>
             <pre class="language-ruby">
@@ -264,6 +292,11 @@ verify(signed_token)
               </code>
             </pre> 
           </section>
+
+          <section>
+            <h2>Clashing Gems</h2>
+          </section>
+
         </section>
 
         <section>
