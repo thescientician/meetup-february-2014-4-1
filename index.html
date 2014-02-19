@@ -14,7 +14,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="icon" href="img/ruby_yyc.ico" type="image/x-icon">
+    <link rel="icon" href="images/ruby_yyc.ico" type="image/x-icon">
     <link rel="shortcut icon" href="img/ruby_yyc.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="css/reveal.min.css">
@@ -274,13 +274,14 @@ verify(signed_token)
           </section>
 
           <section>
-            <img src="img/explicit.jpg" style="height: 200px">
+            <img src="images/explicit.jpg" style="height: 200px">
             <p>?</p>
           </section>
 
           <section>
             <h2>Slight changes</h2>
             <pre class="language-ruby">
+              Spec/Test File
               <code>
                 post :create, format: :js
               </code>
@@ -306,7 +307,7 @@ verify(signed_token)
             <li><a href="http://edgeguides.rubyonrails.org/4_1_release_notes.html">Release Notes</a></li>
             <li><a href="http://coherence.io/blog/2013/12/17/whats-new-in-rails-4-1.html">Brief Walkthrough</a></li>
           </ul>
-          <img src="img/doge_rails.jpg" style="height:450px;">
+          <img src="images/doge_rails.jpg" style="height:450px;">
         </section>
 
       </div>
@@ -340,7 +341,9 @@ verify(signed_token)
           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'socket.io/socket.io.js', async: true },
+          { src: 'plugin/notes-server/client.js', async: true }
         ]
       });
 
